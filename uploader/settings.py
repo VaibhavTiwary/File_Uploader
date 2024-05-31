@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,6 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-kdk94sl8i6c7(1gz!#pd67vb%64inkqx(cpr-98*zk-35zj1l%"
+
+# postgres://uploader_nct9_user:2x7704mdARZd89mpZxp6p3w89J3YBa20@dpg-cpclh2kf7o1s73fqe9a0-a.oregon-postgres.render.com/uploader_nct9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,6 +85,10 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+DATABASES["default"] = dj_database_url.parse(
+    "postgres://uploader_nct9_user:2x7704mdARZd89mpZxp6p3w89J3YBa20@dpg-cpclh2kf7o1s73fqe9a0-a.oregon-postgres.render.com/uploader_nct9"
+)
 
 
 # Password validation
